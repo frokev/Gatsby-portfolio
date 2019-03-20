@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-ts-loader",
       options: {
-        tslint: true // false or exclude to disable tslint
+        tslint: false // false or exclude to disable tslint
       }
     },
     "gatsby-plugin-lodash",
