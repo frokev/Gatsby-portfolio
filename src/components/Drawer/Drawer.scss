@@ -1,0 +1,69 @@
+.drawer {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  height: 100vh;
+  top: 100%;
+
+  .drawer-menu {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: stretch;
+    background-color: $primary-color;
+    width: 70%;
+    z-index: 2;
+
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-family: $primary-font;
+      font-size: 14px;
+      background-color: $primary-color;
+      color: $darkShade-color;
+      border: 0;
+      border-top: 1px solid $darkShade-color;
+      height: 60px;
+
+      &:nth-last-child(1) {
+        border-bottom: 1px solid $darkShade-color;
+      }
+
+      &:hover,
+      &:focus,
+      &.active {
+        background-color: $primary-color;
+        cursor: pointer;
+        filter: brightness(90%);
+        outline: none;
+      }
+    }
+  }
+
+  .drawer-tapout-area {
+    $bg-color: black;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($bg-color, 0.5);
+    animation: fadeIn 500ms ease-in;
+    z-index: 1;
+
+    @keyframes fadeIn {
+      0% {
+        background-color: transparent;
+      }
+      100% {
+        background-color: rgba($bg-color, 0.5);
+      }
+    }
+  }
+
+  &.no-pointer-events {
+    pointer-events: none;
+  }
+}

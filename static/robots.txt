@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+sitemap: https://tender-colden-961806.netlify.com/sitemap.xml

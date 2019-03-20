@@ -1,0 +1,97 @@
+.navbar {
+  position: relative;
+  display: flex;
+  height: 60px;
+  width: 100%;
+  background-color: $primary-color;
+
+  .container {
+    position: relative;
+    display: flex;
+    justify-items: center;
+
+    .drawer-icon {
+      display: none;
+      visibility: hidden;
+      font-family: "Material Icons";
+      font-weight: normal;
+      font-style: normal;
+      font-size: 32px;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      align-self: center;
+      margin: 10px;
+      color: $darkShade-color;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: "liga";
+
+      @media only screen and (max-width: 1000px) {
+        display: block;
+        visibility: visible;
+      }
+    }
+
+    .brand {
+      font-family: $brand-font;
+      color: $darkAccent-darker-color;
+      font-size: 32px;
+      margin: auto 10px;
+      align-self: center;
+      white-space: nowrap;
+
+      @media only screen and (max-width: 1000px) {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .buttons-wrapper {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-self: center;
+      height: 100%;
+      z-index: 1;
+
+      .button {
+        display: flex;
+        font-family: $primary-font;
+        font-size: 14px;
+        text-decoration: none;
+        background-color: $primary-color;
+        justify-content: center;
+        align-items: center;
+        color: $darkShade-color;
+        width: 86px;
+        border: 0;
+        border-left: 1px solid $darkShade-color;
+
+        &:nth-last-child(1) {
+          border-right: 1px solid $darkShade-color;
+        }
+
+        &:hover,
+        &:focus,
+        &.active {
+          background-color: $primary-color;
+          cursor: pointer;
+          filter: brightness(90%);
+          outline: none;
+        }
+      }
+
+      @media only screen and (max-width: 1000px) {
+        display: none;
+      }
+    }
+  }
+}

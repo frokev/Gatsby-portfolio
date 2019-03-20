@@ -1,0 +1,61 @@
+.about-slide {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  background-color: rgba($darkShade-darker-color, 0.8);
+  font-family: $primary-font;
+  color: $lightShade-color;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 420px;
+  z-index: 1000;
+
+  .title {
+    font-family: $primary-font;
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .image {
+    height: 250px;
+    width: 390px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-bottom: 0px;
+  }
+
+  .textarea {
+    margin-top: 40px;
+    height: 260px;
+    width: 390px;
+    text-align: start;
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .link {
+    position: absolute;
+    bottom: 20px;
+    .button {
+      height: 72px;
+      width: 390px;
+      background-color: $primary-color;
+      font-weight: 400;
+      font-size: 20px;
+      color: $darkShade-color;
+
+      &:hover,
+      &:focus {
+        outline: none;
+        cursor: pointer;
+        filter: brightness(90%);
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@mixin variable($property, $variable, $fallback) {
+  #{$property}: $fallback;
+  #{$property}: var($variable);
+}
+
+// Lighter background, returns darker color (vice versa)
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return $darkShade-color;
+  } @else {
+    @return $lightShade-color;
+  }
+}
