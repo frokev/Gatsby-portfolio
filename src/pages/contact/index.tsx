@@ -26,7 +26,6 @@ export default class ContactPage extends Component<any, any> {
           <div className="content-wrapper">
             <h1 className="page-title">{page_title.text}</h1>
             <form
-              onSubmit={this.handleSubmit}
               name="contact"
               method="post"
               data-netlify="true"
