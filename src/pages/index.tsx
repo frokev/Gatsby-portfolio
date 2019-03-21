@@ -8,8 +8,6 @@ import PortfolioSlide from "../components/PortfolioSlide/PortfolioSlide";
 import AboutSlide from "../components/AboutSlide/AboutSlide";
 import { throttle, Cancelable } from "lodash";
 import ScrollLock from "react-scrolllock";
-//@ts-ignore
-import * as Typewriter from "typewriter-effect";
 
 export interface Props {
   children?: React.ReactNode;
@@ -40,6 +38,7 @@ export default class HomePage extends Component<Props, any> {
     } = data;
 
     const skillList = typewriter_skills.map((x) => x.skill);
+    const Typewriter = this.Typewriter;
 
     return (
       <ScrollLock
@@ -71,14 +70,16 @@ export default class HomePage extends Component<Props, any> {
               />
               <h1 className="title">{landing_title.text}</h1>
               <h2 className="subtitle">{landing_subtitle.text}</h2>
-              <Typewriter
-                options={{
-                  delay: 300,
-                  strings: skillList,
-                  autoStart: true,
-                  loop: true
-                }}
-              />
+              {Typewriter && (
+                <Typewriter
+                  options={{
+                    delay: 300,
+                    strings: skillList,
+                    autoStart: true,
+                    loop: true
+                  }}
+                />
+              )}
               <div className="icons-wrapper">
                 <Icon icon={EIcon.Facebook} />
                 <Icon icon={EIcon.Twitter} />
@@ -92,8 +93,18 @@ export default class HomePage extends Component<Props, any> {
     );
   }
 
+  Typewriter: any = undefined;
   throttledHandleResize: (() => void) & Cancelable | undefined = undefined;
   componentDidMount() {
+    //imports that require window to be visible
+    try {
+      //@ts-ignore
+      this.Typewriter = require("typewriter-effect");
+      this.forceUpdate();
+    } catch (e) {
+      console.error(e);
+    }
+
     window.scrollTo(0, 0);
     if (window.innerWidth < 1000 || window.innerHeight < 730) {
       this.setState({
