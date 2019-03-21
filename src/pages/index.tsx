@@ -3,14 +3,13 @@ import { Component } from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import Icon, { EIcon } from "../components/Icon";
-// @ts-ignore
-import * as Typewriter from "react-typewriter";
-import TypeWriterSequencer from "../components/TypeWriterSequencer";
 import Layout from "../components/Layout";
 import PortfolioSlide from "../components/PortfolioSlide/PortfolioSlide";
 import AboutSlide from "../components/AboutSlide/AboutSlide";
 import { throttle, Cancelable } from "lodash";
 import ScrollLock from "react-scrolllock";
+//@ts-ignore
+import * as Typewriter from "typewriter-effect";
 
 export interface Props {
   children?: React.ReactNode;
@@ -39,6 +38,9 @@ export default class HomePage extends Component<Props, any> {
       portfolio_card,
       portfolio_card1
     } = data;
+
+    const skillList = typewriter_skills.map((x) => x.skill);
+
     return (
       <ScrollLock
         isActive={this.state.isScrollLock}
@@ -69,18 +71,14 @@ export default class HomePage extends Component<Props, any> {
               />
               <h1 className="title">{landing_title.text}</h1>
               <h2 className="subtitle">{landing_subtitle.text}</h2>
-              <TypeWriterSequencer
-                className="skill-text"
-                repeat={true}
-                pauseBeforeEraseMs={3000}
-                pauseBeforeTypingMs={1000}
-              >
-                {typewriter_skills.map((x, index) => (
-                  <Typewriter key={index} maxDelay={300} minDelay={100}>
-                    {x.skill}
-                  </Typewriter>
-                ))}
-              </TypeWriterSequencer>
+              <Typewriter
+                options={{
+                  delay: 300,
+                  strings: skillList,
+                  autoStart: true,
+                  loop: true
+                }}
+              />
               <div className="icons-wrapper">
                 <Icon icon={EIcon.Facebook} />
                 <Icon icon={EIcon.Twitter} />
